@@ -14,3 +14,5 @@ NetWorking module:
 7. Route53 - dns
 8. certifacte manager - https
 9. RDS - mysql 
+
+10. generate keys using ssh-keygen save the public+private key

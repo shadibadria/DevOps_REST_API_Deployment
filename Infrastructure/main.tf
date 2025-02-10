@@ -13,9 +13,9 @@ module "security_group" {
   vpc_id              = module.networking.dev_proj_1_vpc_id
   ec2_jenkins_sg_name = "Allow port 8080 for jenkins"
 }
-/*
+
 module "jenkins" {
-  source                    = "./jenkins"
+  source                    = "./modules/jenkins"
   ami_id                    = var.ec2_ami_id
   instance_type             = "t2.medium"
   tag_name                  = "Jenkins:Ubuntu Linux EC2"
@@ -23,11 +23,11 @@ module "jenkins" {
   subnet_id                 = tolist(module.networking.dev_proj_1_public_subnets)[0]
   sg_for_jenkins            = [module.security_group.sg_ec2_sg_ssh_http_id, module.security_group.sg_ec2_jenkins_port_8080]
   enable_public_ip_address  = true
-  user_data_install_jenkins = templatefile("./jenkins-installer.sh", {})
+  user_data_install_jenkins = templatefile("./modules/jenkins/jenkins-installer.sh", {})
 }
 
 module "lb_target_group" {
-  source                   = "./load-balancer-target-group"
+  source                   = "./modules/load-balancer-target-group"
   lb_target_group_name     = "jenkins-lb-target-group"
   lb_target_group_port     = 8080
   lb_target_group_protocol = "HTTP"
@@ -35,8 +35,9 @@ module "lb_target_group" {
   ec2_instance_id          = module.jenkins.jenkins_ec2_instance_ip
 }
 
+
 module "alb" {
-  source                    = "./load-balancer"
+  source                    = "./modules/load-balancer"
   lb_name                   = "dev-proj-1-alb"
   is_external               = false
   lb_type                   = "application"
@@ -55,14 +56,14 @@ module "alb" {
 }
 
 module "hosted_zone" {
-  source          = "./hosted-zone"
-  domain_name     = "jenkins.jhooq.org"
+  source          = "./modules/hosted-zone"
+  domain_name     = "jenkins.sbadria.art"
   aws_lb_dns_name = module.alb.aws_lb_dns_name
   aws_lb_zone_id  = module.alb.aws_lb_zone_id
 }
 
 module "aws_ceritification_manager" {
-  source         = "./certificate-manager"
-  domain_name    = "jenkins.jhooq.org"
+  source         = "./modules/certificate-manager"
+  domain_name    = "jenkins.sbadria.art"
   hosted_zone_id = module.hosted_zone.hosted_zone_id
-}*/
+}
