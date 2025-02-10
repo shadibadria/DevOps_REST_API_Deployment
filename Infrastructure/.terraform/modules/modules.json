@@ -1,1 +1,1 @@
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"networking","Source":"./modules/networking","Dir":"modules/networking"}]}
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"networking","Source":"./modules/networking","Dir":"modules/networking"},{"Key":"security_group","Source":"./modules/security-groups","Dir":"modules/security-groups"}]}

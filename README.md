@@ -1,13 +1,14 @@
 
 Flask app + mysql 
 
-infra:
+infrastructure:
 
-NetWorking:
-1. vpc 
-2. subnet(public+private)
-3. route table
-4. internet-gateway
+NetWorking module:
+    1. vpc 
+    2. subnet(public+private)
+    3. route table
+    4. internet-gateway
+
 5. target group
 6. elastic load balancer
 7. Route53 - dns
