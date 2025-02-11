@@ -10,7 +10,6 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                deleteDir()
                 git branch: 'main',
                     url: 'https://github.com/shadibadria/DevOps_REST_API_Deployment.git'
 
