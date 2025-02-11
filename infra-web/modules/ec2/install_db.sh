@@ -1,8 +1,9 @@
 #! /bin/bash
 sudo yum update -y
 sudo yum install python3 -y 
-sudo yum install pip3 -y
+sudo yum install pip -y
 cd ~
+sudo yum install git -y
 git clone https://github.com/shadibadria/PythonRestApi
 sleep 20
 cd PythonRestApi
