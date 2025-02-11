@@ -12,7 +12,7 @@ pipeline {
             steps {
                 deleteDir()
                 git branch: 'main',
-                    url: 'https://github.com/shadibadria/PythonRestApi'
+                    url: 'https://github.com/shadibadria/DevOps_REST_API_Deployment.git'
 
                 sh "ls -lart"
             }

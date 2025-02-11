@@ -3,9 +3,9 @@ sudo yum update -y
 sudo yum install python3 -y 
 sudo yum install pip3 -y
 cd ~
-git clone https://github.com/rahulwagh/python-mysql-db-proj-1.git
+git clone https://github.com/shadibadria/PythonRestApi
 sleep 20
-cd python-mysql-db-proj-1
+cd PythonRestApi
 pip3 install -r requirements.txt
 echo 'Waiting for 30 seconds before running the app.py'
 sudo yum install util-linux -y
